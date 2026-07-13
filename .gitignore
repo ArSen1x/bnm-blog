@@ -1,0 +1,22 @@
+/node_modules
+/.next
+/out
+/build
+.DS_Store
+*.pem
+npm-debug.log*
+.env*
+/playwright-report
+/test-results
+/.vercel
+next-env.d.ts
+*.tsbuildinfo
+/docs
+/e2e
+
+# AI assistant / editor local files
+.claude/
+CLAUDE.md
+*.local
+.cursor/
+.aider*

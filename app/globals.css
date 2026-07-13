@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-ink font-serif antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Visible, consistent keyboard focus everywhere. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-paper rounded-sm;
+  }
+
+  ::selection {
+    @apply bg-accent text-white;
+  }
+
+  /* Respect users who prefer less motion: neutralize all animation/transition. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Eyebrow / metadata label — the monospace "field notes" voice. */
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.18em] text-muted;
+  }
+
+  /* Reading typography for a single post (Medium-like calm column). */
+  .prose {
+    @apply font-serif text-[1.075rem] leading-[1.75] text-ink;
+  }
+  .prose > * + * {
+    @apply mt-6;
+  }
+  .prose h2 {
+    @apply font-display text-2xl font-semibold tracking-tight mt-12 mb-2 text-ink;
+  }
+  .prose h3 {
+    @apply font-display text-xl font-semibold tracking-tight mt-10 mb-1 text-ink;
+  }
+  .prose a {
+    @apply text-accent underline decoration-accent/30 underline-offset-2 hover:decoration-accent transition-colors;
+  }
+  .prose strong {
+    @apply font-semibold text-ink;
+  }
+  .prose ul {
+    @apply list-disc pl-6 space-y-2;
+  }
+  .prose ol {
+    @apply list-decimal pl-6 space-y-2;
+  }
+  .prose blockquote {
+    @apply border-l-2 border-accent pl-5 italic text-muted;
+  }
+  .prose code {
+    @apply font-mono text-[0.9em] bg-ink/5 rounded px-1.5 py-0.5;
+  }
+  .prose pre {
+    @apply font-mono text-sm bg-ink text-paper rounded-xl p-5 overflow-x-auto;
+  }
+  .prose pre code {
+    @apply bg-transparent p-0 text-inherit;
+  }
+  .prose img {
+    @apply rounded-xl border border-line;
+  }
+  .prose hr {
+    @apply border-line my-10;
+  }
+  .prose table {
+    @apply w-full text-sm border-collapse;
+  }
+  .prose th,
+  .prose td {
+    @apply border border-line px-3 py-2 text-left;
+  }
+}
